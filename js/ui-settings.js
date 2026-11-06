@@ -54,4 +54,4 @@ function requestNotifPermission() {
             new Notification('DAGBO Connected', { body: 'You will now receive real alerts for trades, news, and price targets.', icon: 'https://cdn-icons-png.flaticon.com/512/2933/2933859.png' });
         } else { showToast('Permission denied. Check browser settings.', 'error'); }
     });
-          }
+}
