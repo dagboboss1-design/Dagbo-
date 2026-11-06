@@ -6,7 +6,13 @@ function pushNotif(type, title, body) {
     const b = document.getElementById('notifBadge');
     if (b) b.classList.remove('hidden');
     if ('Notification' in window && Notification.permission === 'granted') {
-        try { new Notification(title, { body: body, icon: 'https://cdn-icons-png.flaticon.com/512/2933/2933859.png', vibrate: [200, 100, 200] }); } catch (e) {}
+        try {
+            if (navigator.serviceWorker && navigator.serviceWorker.ready) {
+                navigator.serviceWorker.ready.then(reg => {
+                    reg.showNotification(title, { body: body, icon: 'https://cdn-icons-png.flaticon.com/512/2933/2933859.png', vibrate: [200, 100, 200] });
+                });
+            }
+        } catch (e) {}
     }
 }
 
