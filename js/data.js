@@ -176,7 +176,7 @@ function checkAlerts() {
 
 async function fetchNews() {
     try {
-        const r = await fetch('https://api.allorigins.win/raw?url=' + encodeURIComponent('https://nfs.faireconomy.media/ff_calendar_thisweek.json'));
+        const r = await fetch('https://corsproxy.io/?' + encodeURIComponent('https://nfs.faireconomy.media/ff_calendar_thisweek.json'));
         if (!r.ok) throw new Error();
         const d = await r.json();
         const now = Date.now();
